@@ -20,3 +20,5 @@ class SceneB extends Phaser.Scene {
 
     }
 }
+
+export default SceneB

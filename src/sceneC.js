@@ -1,4 +1,4 @@
-class SceneC extends Phaser.Scene {
+export default class SceneC extends Phaser.Scene {
     constructor(){
         super({ key: "SceneC", active: true});
     }
