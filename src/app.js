@@ -13,24 +13,16 @@ new Phaser.Game(config)
 
 function preload(){
     console.log("Preload")
-    this.load.atlas('evil_tomato', './assets/evil_tomato.png','./assets/evil_tomato.json')
+    this.load.atlas('tomato_atlas', './assets/evil_tomato.png','./assets/evil_tomato.json')
+    this.load.json('evil_tomato_anim', './assets/evil_tomato_anim.json')
 }
 
 function create(){
     console.log("Create")
-    this.tomato = this.add.sprite(100,100,'evil_tomato')
+    this.tomato = this.add.sprite(100,100,'tomato_atlas')
+    this.dataAnim = this.cache.json.get('evil_tomato_anim')
 
-    this.anims.create({
-        key: 'tomato_walk',
-        frames: this.anims.generateFrameNames('evil_tomato', {
-            prefix: 'evil_tomato_',
-            suffix: '.png',
-            start: 1,
-            end: 8
-        }),
-        repeat: -1,
-        frameRate: 10
-    })
+    this.anims.fromJSON(this.dataAnim)
 
-    this.tomato.anims.play('tomato_walk')
+    this.tomato.anims.play('tomato_atlas_walk')
 }
