@@ -13,7 +13,7 @@ new Phaser.Game(config)
 
 function preload(){
     console.log("Preload")
-    this.load.spritesheet('evil_tomato', './assets/evil_tomato.png',{ frameWidth: 16, frameHeight: 25})
+    this.load.atlas('evil_tomato', './assets/evil_tomato.png','./assets/evil_tomato.json')
 }
 
 function create(){
@@ -22,7 +22,9 @@ function create(){
 
     this.anims.create({
         key: 'tomato_walk',
-        frames: this.anims.generateFrameNumbers('evil_tomato', {
+        frames: this.anims.generateFrameNames('evil_tomato', {
+            prefix: 'evil_tomato_',
+            suffix: '.png',
             start: 1,
             end: 8
         }),
